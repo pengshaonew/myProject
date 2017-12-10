@@ -1,8 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import { createStore, applyMiddleware, compose } from 'redux'
+import thunk from 'redux-thunk'
+import reducers from './reducers';
+import Root from './Root';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+const isProduction =
+    process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'production_dev' || process.env.NODE_ENV === 'production_his_wx';
+
+let store;
+if (isProduction) {
+    store = createStore(reducers, {}, applyMiddleware(thunk));
+} else {
+    /**
+     * Only use the DevTools component
+     * when in development.
+     */
+    store = createStore(reducers, {}, compose(applyMiddleware(thunk)));
+}
+
+ReactDOM.render(
+    <Root store={store}/>,
+    document.getElementById('root')
+);

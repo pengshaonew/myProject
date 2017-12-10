@@ -1,7 +1,7 @@
 'use strict';
 
 // Do this as the first thing so that any code reading it knows the right env.
-process.env.NODE_ENV = 'production';
+process.env.NODE_ENV = 'production_dev';
 
 // Load environment variables from .env file. Suppress warnings using silent
 // if this file is missing. dotenv will never modify any environment variables

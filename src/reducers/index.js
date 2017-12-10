@@ -1,9 +1,14 @@
-/**
- * Created by zsp on 2017/12/10.
- */
-import { combineReducers } from 'redux'
-import todos from './todos/todos'
+import {combineReducers} from 'redux';
+import activation from './activation/activation'
 
-export default combineReducers({
-    todos
-})
+const appReducer = combineReducers({
+    activation
+});
+
+const rootReducer = (state, action) => {
+    if (action.type === 'RESET') {
+        state = {};
+    }
+    return appReducer(state, action);
+};
+export default rootReducer;
