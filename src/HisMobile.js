@@ -2,7 +2,7 @@ import React from 'react';
 import {Route, Router} from 'react-router-dom'
 import {connect} from 'react-redux'
 import history from './history'
-import HisWxMain from './containers/Activation';
+import HisWxMain from './containers/activation/Activation';
 
 class HisMobile extends React.Component {
     render() {

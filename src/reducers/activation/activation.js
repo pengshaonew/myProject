@@ -3,15 +3,15 @@
  */
 import {
     ACTIVATION_ADD
-} from '../../action/activationAction'
+} from '../../action/activation/activationAction'
 export default function activation(state = {
     userName: '',
     tel: '',
 }, action) {
-    const {type} = action;
+    const {type,data} = action;
     switch (type) {
         case ACTIVATION_ADD:
-            return {userName: action.userName};
+            return {userName: data.userName,tel: data.tel};
         default:
             return state;
     }
