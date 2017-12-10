@@ -47,7 +47,7 @@ class HisWxMain extends React.Component {
         }
         if (!/^1[345789]\d{9}$/.test(this.state.tel)) {
             Toast.info('请输入合法的手机号', 1);
-            // return;
+            return;
         }
         this.props.setUserName({userName:this.state.userName,tel:this.state.tel});
         /*fetch('/war/memberCard/activate', {
